@@ -8,9 +8,8 @@ function Protected({ children, authentication = true }) {
   const authStatus = useSelector((state) => state.auth.status);
 
   useEffect(() => {
-    if (authentication && authStatus !== authentication)
-      navigate("/login"); // if authetication needed but user not logged in
-    else if (!authentication && authStatus !== authentication) navigate("/"); // I don't understand
+    if (authentication && authStatus !== authentication) navigate("/login"); // if authetication needed but user not logged in
+    //else if (!authentication && authStatus !== authentication) navigate("/"); // If auth not needed but logged in then navigate to home
 
     setLoader(false);
   }, [authStatus, navigate, authentication]);
